@@ -12,9 +12,27 @@
 </head>
 <body>
 
-	<h1>File upload</h1>
-<h4>${fileName }</h4>
-<h4>${FileSize }</h4>
+
+	<table>
+		<tr>
+
+			<td>File Path</td>
+			<td>${filePath }</td>
+		</tr>
+		<tr>
+			<td>File Name</td>
+			<td>${fileName }</td>
+		</tr>
+		<tr>
+			<td>File Size</td>
+			<td>${FileSize }</td>
+		</tr>
+		<tr>
+			<td>Download file</td>
+			<td><a href="/downloadFile/100">Download file</a></td>
+		</tr>
+	</table>
+
 
 	<form:form enctype="multipart/form-data" modelAttribute="empCmd">
 
@@ -29,5 +47,6 @@ File-2: <form:input path="file1" type="file" />
 		<input type="submit" value="Submit">
 
 	</form:form>
+	<a href="/uploadfile">Home</a>
 </body>
 </html>

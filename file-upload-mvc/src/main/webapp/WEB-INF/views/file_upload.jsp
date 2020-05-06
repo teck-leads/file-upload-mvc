@@ -14,6 +14,12 @@
 
 
 	<table>
+	
+	<tr>
+
+			<td>Status </td>
+			<td>${status }</td>
+		</tr>
 		<tr>
 
 			<td>File Path</td>
@@ -31,6 +37,8 @@
 			<td>Download file</td>
 			<td><a href="/downloadFile/100">Download file</a></td>
 		</tr>
+		
+		
 	</table>
 
 
@@ -47,6 +55,6 @@ File-2: <form:input path="file1" type="file" />
 		<input type="submit" value="Submit">
 
 	</form:form>
-	<a href="/uploadfile">Home</a>
+	<a href="/emp/register">Home</a>
 </body>
 </html>

@@ -12,5 +12,7 @@ public class FileUpload {
 	private String name;
 	private String filePath;
 	private byte[] fileContent;
+	private String contentType;
+	private Integer userId;
 
 }

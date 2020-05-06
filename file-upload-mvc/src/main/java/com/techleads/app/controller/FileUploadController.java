@@ -34,18 +34,18 @@ public class FileUploadController {
 	@Autowired
 	private FileUploadDaoImpl fileUploadDaoImpl;
 
-	@RequestMapping(value = "/uploadfile", method = RequestMethod.GET)
+	//@RequestMapping(value = "/uploadfile", method = RequestMethod.GET)
 	public String showUploadForm(@ModelAttribute("empCmd") Employee employee) {
 		return "file_upload";
 	}
 
-	@RequestMapping(value = "/uploadfile", method = RequestMethod.POST)
+//	@RequestMapping(value = "/uploadfile", method = RequestMethod.POST)
 	public String processForm(@ModelAttribute("empCmd") Employee employee, Model model)
 			throws Exception {
 		model.addAttribute("fileName", employee.getFile1().getOriginalFilename());
 		model.addAttribute("FileSize", employee.getFile1().getSize());
 		employee= storeFileLocalPath(employee);
-		model.addAttribute("filePath", employee.getFilePath());
+	//	model.addAttribute("filePath", employee.getFilePath());
 		return "file_upload";
 	}
 
@@ -67,7 +67,7 @@ public class FileUploadController {
 			// save the actual file
 			byte[] bytes = multipartFile.getBytes();
 			
-			
+			multipartFile.getContentType();
 			fileupload.setId(100);
 			fileupload.setName(fileName);
 			fileupload.setFileContent(bytes);
@@ -79,7 +79,7 @@ public class FileUploadController {
 
 			// multipartFile.transferTo(pathFile);}
 			fileUploaded = true;
-			employee.setFilePath(String.valueOf(path));
+			//employee.setFilePath(String.valueOf(path));
 		}
 		return employee;
 	}

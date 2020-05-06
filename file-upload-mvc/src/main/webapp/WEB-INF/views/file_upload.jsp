@@ -1,60 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@include file="commons/header.jspf"%>
 
+<div class="container">
 
-	<table>
-	
-	<tr>
+	<div class="col-md-8 col-md-offset-2">
+		<h3>File upload and download with master and child tables</h3>
+		<form:form enctype="multipart/form-data" modelAttribute="empCmd">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<form:input path="name" class="form-control" />
+			</div>
 
-			<td>Status </td>
-			<td>${status }</td>
-		</tr>
-		<tr>
+			<div class="form-group">
+				<label for="name">Address</label>
+				<form:input path="address" class="form-control" />
+			</div>
 
-			<td>File Path</td>
-			<td>${filePath }</td>
-		</tr>
-		<tr>
-			<td>File Name</td>
-			<td>${fileName }</td>
-		</tr>
-		<tr>
-			<td>File Size</td>
-			<td>${FileSize }</td>
-		</tr>
-		<tr>
-			<td>Download file</td>
-			<td><a href="/downloadFile/100">Download file</a></td>
-		</tr>
-		
-		
-	</table>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Upload</span>
+				</div>
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="inputGroupFile01">
+					<form:input path="file1" type="file" class="custom-file-input" />
+					<label class="custom-file-label" for="inputGroupFile01">Choose
+						file</label>
+				</div>
+			</div>
 
+			<input type="submit" value="Submit" class="btn btn-primary">
 
-	<form:form enctype="multipart/form-data" modelAttribute="empCmd">
-
-name: <form:input path="name" />
-		<br>
-Address: <form:input path="address" />
-		<br>
-File-1: <form:input path="file1" type="file" />
-		<br>
-File-2: <form:input path="file1" type="file" />
-		<br>
-		<input type="submit" value="Submit">
-
-	</form:form>
-	<a href="/emp/register">Home</a>
-</body>
-</html>
+		</form:form>
+		<a href="/emp/register">Home</a>
+	</div>
+</div>
+<%@include file="commons/footer.jspf"%>
